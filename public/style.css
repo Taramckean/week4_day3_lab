@@ -13,11 +13,22 @@ p {
   font-size: 60px;
   font-family:fantasy;
 }
-
+.big_title {
+  font-size: 40px;
+  text-shadow: 5px 5px 5px white;
+}
 .centered {
     margin: 0 auto;
     text-align: center;
     width: 400px;
+}
+.bordered {
+  border: dotted 5px skyblue;
+}
+
+.yellow_font{
+color: yellow;
+width:200px;
 }
 
 .button {
@@ -41,12 +52,13 @@ p {
     color: white;
 }
 a {
-    color: SlateBlue;
+    color: RebeccaPurple;
     text-decoration: none;
     text-align: center;
+    border: 2px black;
 }
 a:hover {
-    color: MediumSpringGreen ;
+    color: SpringGreen ;
     text-decoration: underline;
      background-color: white;
      opacity:0.7

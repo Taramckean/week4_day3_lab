@@ -13,8 +13,16 @@ get '/hogwarts/students' do
   erb(:index)
 end
 
+post '/hogwarts/students/create' do
+  @students = Student.new(params)
+  @students.save()
+  redirect to '/hogwarts/students/create'
+end
+
 get '/hogwarts/students/new' do
   erb(:new)
 end
 
-post 
+get '/hogwarts/students/create' do 
+erb(:create)
+end

@@ -3,13 +3,13 @@ require_relative('../db/sql_runner')
 class Student
 
   attr_reader :id
-  attr_accessor :first_name, :last_name, :house, :age
+  attr_accessor :first_name, :last_name, :house_id, :age
 
   def initialize(options)
     @id = options['id'].to_i
     @first_name = options['first_name']
     @last_name = options['last_name']
-    @house = options['house']
+    @house_id = options['house_id'].to_i
     @age = options['age'].to_i
   end
 
@@ -18,10 +18,10 @@ class Student
   end
 
   def save()
-    sql = "INSERT INTO students (first_name, last_name, house, age)
+    sql = "INSERT INTO students (first_name, last_name, house_id, age)
     VALUES ($1, $2, $3, $4)
     RETURNING *"
-    values = [@first_name, @last_name, @house, @age]
+    values = [@first_name, @last_name, @house_id, @age]
     student_data = SqlRunner.run(sql, values)
     @id = student_data.first()['id'].to_i
   end
@@ -52,12 +52,10 @@ class Student
     return result
   end
 
-  def update()
-    sql = "UPDATE customers SET (first_name, last_name, house, age)
-    = ( $1, $2, $3, $4) WHERE id = $5"
-    values = [@first_name, @last_name, @house, @age]
-    SqlRunner.run(sql, values)
-  end
+  # def house_find()
+  #   sql = "SELECT * from students where house_id = $1"
+
+
 
 
 end
